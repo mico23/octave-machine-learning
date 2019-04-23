@@ -24,7 +24,7 @@ P = sigmoid(hypothesis);
 C1 = (-1 * y) .* log(P);
 C2 = (1- y) .* log(1 - P);
 C = sum(C1-C2);
-Reg = (lambda/(2*m)) * sum(theta .^ 2);
+Reg = (lambda/(2*m)) * sum(theta([2:size(theta)],:) .^ 2);
 J = (1/m) * C + Reg;
 
 % caculate gradient
